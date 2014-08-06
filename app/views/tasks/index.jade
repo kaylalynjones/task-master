@@ -16,11 +16,11 @@ block content
         tr(style='background-color:#{task.priority.color}')
           td= task.name
           td= moment(task.due).format('ll')
-          td= task.photo
+          td: img(src='#{task.photo}')
           td
-            form(method='post', action='/tasks')
-            input(type="checkbox", name="task.complete")
-            button Update
+            form(method='post', action='/tasks/#{task._id}')
+              input(type="checkbox", checked=task.isComplete)
+              button Update
           td= task.tags
           td= task.priority.name
 

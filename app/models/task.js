@@ -31,8 +31,9 @@ Task.findAll = function(cb){
     var tasks = objects.map(function(obj){
       return changePrototype(obj);
     });
-
+    console.log(tasks);
     async.map(tasks, iterator, function(err, results){
+console.log('After', tasks);
       cb(results);
     });
   });
@@ -48,19 +49,15 @@ function iterator(task, cb){
 //------------------------------
 Task.findById = function(id, cb){
     var _id = Mongo.ObjectID(id);
-    Task.collection.findOne({_id: _id}, function(err,objects){
+    Task.collection.findOne({_id: _id}, function(err, objects){
     var task = changePrototype(objects);
     cb(task);
   });
 };
 
-Task.toggle = function(){
-  if(!this.isComplete){
-    this.isComplete = true;
-  } else {
-    this.isComplete = false;
-  }
-  Task.collection.update({_id:this._id}, {$push: {isComplete: this.isComplete}}, cb);
+Task.prototype.toggle = function(cb){
+    var value = !this.isComplete;
+    Task.collection.update({_id:this._id}, {$set: {isComplete: value}}, cb);
 };
 
 //Private Function
@@ -70,7 +67,7 @@ function changePrototype(obj) {
   return tasks;
 }
 
-function getPriority(task, cb) {
-  Priority.findById(task.priorityId, cb);
-}
+//function getPriority(task, cb) {
+  //Priority.findById(task.priorityId, cb);
+//}
 module.exports = Task;

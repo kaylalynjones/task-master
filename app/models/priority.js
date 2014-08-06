@@ -29,9 +29,11 @@ Priority.findAll = function(cb){
 };
 
 Priority.findById = function(id, cb){
-    Priority.collection.find({_id: Mongo.ObjectID(id)}).toArray(function(err, objects){
-      cb(changePrototype(objects[0]));
-  });
+    var _id = Mongo.ObjectID(id);
+    Priority.collection.findOne({_id: _id}, function(err,object){
+      var priority = changePrototype(object);
+      cb(priority);
+    });
 };
 
 // Private function

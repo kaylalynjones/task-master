@@ -25,3 +25,11 @@ exports.index = function(req, res){
   });
 };
 
+exports.toggle = function(req, res){
+  Task.findById(req.params.id, function(task){
+    task.toggle(function(){
+      res.redirect('/tasks');
+    });
+  });
+};
+

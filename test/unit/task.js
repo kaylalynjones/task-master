@@ -22,7 +22,7 @@ describe('Task', function(){
       var b = {name: 'Groceries', due: '8/18/2014', photo: 'https://cdn3.iconfinder.com/data/icons/line/36/shopping_cart-256.png', tags: 'food, store, home, budget', priorityId: ''};
       var c = {name: 'Homework', due: '8/19/2014', photo: 'https://cdn3.iconfinder.com/data/icons/education/512/Book_B-128.png', tags: 'homework, code, school', priorityId: ''};
       var d = {name: 'Gas', due: '8/20/2014', photo: 'http://www.clker.com/cliparts/5/b/6/6/P/H/petrol-pump-symbol-md.png', tags: 'car, budget, home', priorityId: ''};
-      var e = {name: 'Maintenance', due: '9/15/2014', photo: 'https://cdn1.iconfinder.com/data/icons/real-estate-set-2/512/21-128.png', tags: 'budget, maintenance, home, housework', priorityId: ''};
+      var e = {name: 'Maintenance', due: '9/15/2014', photo: 'https://cdn1.iconfinder.com/data/icons/real-estate-set-2/512/21-128.png', tags: 'budget, maintenance, home, housework', priorityId: '1'};
       laundry = new Task(a);
       groceries = new Task(b);
       homework = new Task(c);

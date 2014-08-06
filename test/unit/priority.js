@@ -66,10 +66,19 @@ describe('Priority', function(){
     it('should find all the priorities in the database', function(done){
       Priority.findAll(function(priorities){
           expect(priorities).to.have.length(3);
+          console.log(priorities);
           expect(priorities[0].name).to.equal('High');
           done();
       });
     });
   });
-
+  describe('.findById', function(){
+    it('should find a priority by its id', function(done){
+      Priority.findById(high._id.toString(), function(priority){
+        expect(priority.name).to.equal('High');
+        expect(priority).to.respondTo('save');
+        done();
+      });
+    });
+  });
 }); //last one

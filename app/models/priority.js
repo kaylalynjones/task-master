@@ -1,7 +1,7 @@
 'use strict';
 
 var _ = require('lodash');
-//var Mongo = require('mongodb');
+var Mongo = require('mongodb');
 
 function Priority(obj){
   this.name   = obj.name;
@@ -11,7 +11,7 @@ function Priority(obj){
 
 Object.defineProperty(Priority, 'collection', {
   get:function(){
-    return global.mongodb.collection('prioities');
+    return global.mongodb.collection('priorities');
   }
 });
 
@@ -28,7 +28,11 @@ Priority.findAll = function(cb){
   });
 };
 
-
+Priority.findById = function(id, cb){
+    Priority.collection.find({_id: Mongo.ObjectID(id)}).toArray(function(err, objects){
+      cb(changePrototype(objects[0]));
+  });
+};
 
 // Private function
 function changePrototype(obj){

@@ -31,9 +31,19 @@ Task.findAll = function(cb){
     var tasks = objects.map(function(obj){
       return changePrototype(obj);
     });
-    cb();
+
+    async.map(tasks, iterator, function(err, results){
+      cb(results);
+    });
   });
 };
+
+function iterator(task, cb){
+  Priority.findById(task.priorityId, function(priority){
+    task.priority = priority;
+    cb(null, task);
+  });
+}
 
 //------------------------------
 Task.findById = function(id, cb){

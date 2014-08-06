@@ -13,7 +13,7 @@ block content
       th Priority
     tbody
       each task in tasks
-        tr
+        tr(style='background-color:#{task.priority.color}')
           td= task.name
           td= moment(task.due).format('ll')
           td= task.photo
@@ -22,4 +22,5 @@ block content
             input(type="checkbox", name="task.complete")
             button Update
           td= task.tags
-          td= task.priorityId.name
+          td= task.priority.name
+

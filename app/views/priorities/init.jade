@@ -1,13 +1,14 @@
 extends ../shared/template
 block content
 
-  h2 priorities Index.jade
+  h2 priorities Init.jade
 
   form(method='post', action='/priorities')
     input(name="name", type="text", placeholder="Urgent/high", autofocus=true)
     br
     input(name="color", type="color", value="#ff0000")
     br
-    input(name="value", type="number")
+    input(name="value", type="number", placeholder="10")
     br
     button Add Priority
+

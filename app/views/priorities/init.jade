@@ -1,13 +1,16 @@
 extends ../shared/template
 block content
 
-  h2 priorities Index.jade
+  h2 Create a new Priority
 
   form(method='post', action='/priorities')
+    label Level of Procrasination
     input(name="name", type="text", placeholder="Urgent/high", autofocus=true)
     br
+    label Color
     input(name="color", type="color", value="#ff0000")
     br
-    input(name="value", type="number")
+    label Sorting Value (1 - 15)
+    input(name="value", type="number", min="1", max="15")
     br
     button Add Priority

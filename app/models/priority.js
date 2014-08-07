@@ -11,7 +11,7 @@ function Priority(obj){
 
 Object.defineProperty(Priority, 'collection', {
   get:function(){
-    return global.mongodb.collection('prioities');
+    return global.mongodb.collection('priorities');
   }
 });
 

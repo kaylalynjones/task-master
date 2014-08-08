@@ -3,14 +3,16 @@ block content
 
   h2 Create a new Priority
 
-  form(method='post', action='/priorities')
-    label Level of Procrasination
+  form#new-priority-form(method='post', action='/priorities')
+    label Name
     input(name="name", type="text", placeholder="Urgent/high", autofocus=true)
     br
     label Color
     input(name="color", type="color", value="#ff0000")
     br
-    label Sorting Value (1 - 15)
+    label Level
     input(name="value", type="number", min="1", max="15")
     br
-    button Add Priority
+    button#new-priority-button Add Priority
+
+

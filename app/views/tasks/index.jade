@@ -1,0 +1,28 @@
+extends ../shared/template
+block content
+
+  h2 List of Tasks
+
+  table
+    thead
+      th Name
+      th Due
+      th Photo
+      th Complete
+      th Tags
+      th Priority
+    tbody
+      each task in tasks
+        tr(style='background-color:#{task.priority.color}')
+          td= task.name
+          td= moment(task.due).format('ll')
+          td: img(src='#{task.photo}')
+          td
+            form(method='post', action='/tasks/#{task._id}')
+              input(type="checkbox", checked=task.isComplete)
+              button Update
+          td
+            each tag in task.tags
+              a(href='/tasks?tag=#{tag}')= tag
+          td= task.priority.name
+

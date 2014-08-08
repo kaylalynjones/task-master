@@ -3,8 +3,8 @@
 body {
   font-family: 'Open Sans', sans-serif;i
   font-size: 1em;
-  width: 80%;
-  margin: 0 auto;
+  box-sizing: border-box;
+  margin: 60px;
 }
 h1, h2, h3 {
   font-family: 'Merriweather', serif;
@@ -14,26 +14,29 @@ h1 {
 }
 h2 {
   clear: both;
+  padding-right: 80%;
+  text-align: center;
 }
 nav ul li {
   display: inline-block;
   list-style: none;
   padding: 15px;
   float: right;
+  margin: 3px 3px 3px 0;
 
 }
-a {
+nav a {
   text-decoration: none;
   font-size: 1.25rem;
   color: black;
   font-weight: 300;
 }
-a:hover {
-  /*font-weight: 400;*/
-  border-bottom: 2px solid black;
+nav a:hover {
+  font-weight: 400;
+  border-bottom: 3px solid black;
 
 }
-a:visited {
+nav a:visited {
   text-decoration: none;
   font-size: 16px;
   color: black;
@@ -44,3 +47,101 @@ form {
 input[type='text'] {
   width: 150px;
 }
+table {
+  margin: 40px auto;
+  border-spacing: 0;
+  table-layout: fixed;
+  text-align: center;
+  border: 2px solid black;
+}
+th {
+  font-size: 20px;
+  border-bottom: 2px solid black;
+  background-color: rgba(240, 234, 234, 0.5);
+}
+td > a {
+  text-decoration: none;
+  color: black;
+  padding: 10px;
+}
+td > a:hover {
+  text-decoration: none;
+  color: black;
+  background-color: rgba(255, 255, 255, 0.77);
+  border-radius: 60px;
+}
+td > a:visited {
+  text-decoration: none;
+  color: black;
+}
+img {
+  width: 80px;
+}
+td {
+  min-width: 95px;
+  padding: 10px 20px;
+}
+tr > td:first-child {
+  font-family: 'Merriweather', serif;
+  font-size: 20px;
+  background-color: rgba(255,255,255,0.25);
+}
+button {
+  width: 80px;
+  height: 40px;
+  font-size: 14px;
+  background-color: #fff;
+  border: 2px outset #eee;
+}
+button:hover {
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  border: 2px outset dimgrey;
+  cursor: pointer;
+}
+label {
+  padding: 0 20px;
+  width: 100px;
+  display: inline-block;
+}
+input[type=text],
+input[type=date],
+input[type=number],
+select,
+input[type=color]{
+  width: 190px;
+  height: 40px;
+  font-size: 20px;
+  margin: 5px 0;
+  padding: 0 5px;
+}
+select {
+  -webkit-appearance: none;
+  border-radius: 0;
+  width: 205px;
+}
+#new-task-form {
+  background-color: #eee;
+  margin: 0 auto;
+  width: 30%;
+  padding: 100px 100px 140px;
+}
+#new-priority-form {
+  background-color: #eee;
+  margin: 0 auto;
+  width: 30%;
+  padding: 100px 100px 140px;
+  
+}
+button#new-task-button {
+  width: 150px;
+  float: right;
+  margin: 3px;
+}
+button#new-priority-button {
+  width: 150px;
+  float: right;
+  margin: 3px;
+}
+
